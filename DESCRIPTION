@@ -1,0 +1,25 @@
+Package: GeneIdentifierUtilsR
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Sam",
+           family = "El-Kamand",
+           role = c("aut", "cre"),
+           email = "selkamand@ccia.org.au",
+           comment = c(ORCID = "https://orcid.org/0000-0003-2270-8088"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    magrittr,
+    assertthat (>= 0.2.1),
+    ensembldb (>= 2.14.0),
+    EnsDb.Hsapiens.v86 (>= 2.99.0),
+    dplyr (>= 1.0.2),
+    purrr (>= 0.3.4)
