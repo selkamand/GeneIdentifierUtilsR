@@ -4,7 +4,6 @@
 #' Takes the HGNC database from:https://biomart.genenames.org/ and adds turns it into a redundant longform dataset with a HGNC.SYMBOL column that represents each and every HGNC symbol (approved, alternative, and previous)
 #'
 #' @return NULL. Run for its side effects
-#' @export
 #'
 #' @examples
 #' preprocess_hgnc_database()
