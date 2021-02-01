@@ -5,17 +5,13 @@
 \title{Ensembl to HGNC Symbol}
 \usage{
 convert_single_ensembl_to_hgnc(ensembl_id)
-
-convert_single_ensembl_to_hgnc(ensembl_id)
 }
 \arguments{
-\item{ensembl_id}{ensembl id (character)}
+\item{ensembl_id}{ensembl id (string)}
 }
 \value{
-HGNC approved symbol (string). NA if can't find a match.
-
-HGNC approved symbols (character vector). NA if can't find a match.
+HGNC approved symbols (string). NA if can't find a match.
 }
 \description{
-Vectorized version of convert_single_ensembl_to_hgnc
+Converts a single ensembl id to HGNC approved symbol.
 }

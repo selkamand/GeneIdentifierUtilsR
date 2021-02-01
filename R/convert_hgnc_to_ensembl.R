@@ -1,7 +1,12 @@
 # Packages ----------------------------------------------------------------
 
-hgnc_to_ensemble_lookup.path = system.file(package = "GeneIdentifierUtilsR","hgnc_to_ensembl_or_refseq.longform.tsv")
-hgnc_to_ensemble_lookup.df = read.csv(hgnc_to_ensemble_lookup.path, header = TRUE, sep = "\t") %>% dplyr::tibble()
+
+hgnc_to_ensemble_lookup.df = read.csv(
+  system.file(package = "GeneIdentifierUtilsR","hgnc_to_ensembl_or_refseq.longform.tsv"),
+  header = TRUE,
+  sep = "\t"
+  ) %>%
+  dplyr::tibble()
 #hgnc_to_ensemble_lookup.df %>% View()
 
 #' Mapping HGNC to ensembl ids
@@ -23,10 +28,10 @@ convert_single_hgnc_to_ensembl <- function(hgnc_symbol){
 
   #browser()
   ensembl_id=hgnc_to_ensemble_lookup.df %>%
-    dplyr::filter(HGNC.SYMBOL==hgnc_symbol) %>%
-    dplyr::filter(nzchar(Ensembl.gene.ID)) %>%
-    dplyr::filter(!is.na(Ensembl.gene.ID)) %>%
-    dplyr::pull(Ensembl.gene.ID) %>%
+    dplyr::filter(.data$HGNC.SYMBOL==hgnc_symbol) %>%
+    dplyr::filter(nzchar(.data$Ensembl.gene.ID)) %>%
+    dplyr::filter(!is.na(.data$Ensembl.gene.ID)) %>%
+    dplyr::pull(.data$Ensembl.gene.ID) %>%
     unique()
 
   assertthat::assert_that(length(ensembl_id) < 2, msg = paste0("hgnc_symbol: ", hgnc_symbol, " was associated with multiple, conflicting, ensembl_ids: ", paste0(ensembl_id, collapse = ", ")))
