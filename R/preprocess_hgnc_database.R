@@ -4,7 +4,7 @@
 #' Takes the HGNC database from:https://biomart.genenames.org/ and adds turns it into a redundant longform dataset with a HGNC.SYMBOL column that represents each and every HGNC symbol (approved, alternative, and previous)
 #'
 #' @return NULL. Run for its side effects
-#'
+#' @importFrom rlang .data
 preprocess_hgnc_database <- function(){
   hgnc_database.path = system.file("inst/hgnc_to_ensembl_or_refseq.tsv",package = "GeneIdentifierUtilsR")
 

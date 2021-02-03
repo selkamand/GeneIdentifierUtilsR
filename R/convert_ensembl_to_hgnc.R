@@ -17,9 +17,13 @@
 #' @return HGNC approved symbols (character). NA if can't find a match.
 #' @export
 convert_ensembl_to_hgnc <- function(ensembl_id){
-  assertthat::assert_that(is.character(ensembl_id))
+  GENEID=NULL; SYMBOL=NULL
 
+  assertthat::assert_that(is.character(ensembl_id))
   ensembl_id <- ensembl_id %>%tidyr::replace_na("")
+
+  #unique_ensembl_id = unique(ensembl_id)
+
   findings_df <- ensembldb::select(x=EnsDb.Hsapiens.v86::EnsDb.Hsapiens.v86, keys = ensembl_id, keytype="GENEID", columns = c("SYMBOL","GENEID")) %>% data.table::as.data.table()
 
   purrr::map_chr(ensembl_id, function(id) {

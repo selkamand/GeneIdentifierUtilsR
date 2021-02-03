@@ -18,6 +18,8 @@ hgnc_to_ensemble_lookup.df = read.csv(
 #' @return ensembl id (string)
 #' @export
 #'
+#' @importFrom rlang .data
+#'
 #' @examples
 #' convert_single_hgnc_to_ensembl("AATK")
 convert_single_hgnc_to_ensembl <- function(hgnc_symbol){
@@ -55,7 +57,7 @@ convert_single_hgnc_to_ensembl <- function(hgnc_symbol){
 #'
 #' @examples
 #' hgnc_symbols = c("AATK", "RNU6-1046P", "SUR-5")
-#' convert_hgnc_to_ensembl()
+#' convert_hgnc_to_ensembl(hgnc_symbols)
 convert_hgnc_to_ensembl <- function(hgnc_symbols){
   hgnc_symbols = as.character(hgnc_symbols)
   assertthat::assert_that(is.character(hgnc_symbols))
