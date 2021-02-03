@@ -8,11 +8,52 @@ test_that("ensembl ID to hgnc conversion", {
 
   #Multiple
   expect_equal(convert_ensembl_to_hgnc(c("ENSG00000188984", "ENSG00000118017")), c("AADACL3", "A4GNT"), ignore_attr=TRUE)
-
   expect_equal(convert_ensembl_to_hgnc(c("ENSG00000188984", "ENSG00000118017", "ENSG00000115657")), c("AADACL3", "A4GNT", "ABCB6"), ignore_attr=TRUE)
 
+  #Multiple WITH NAs and "" and Incorrect IDs
   expect_equal(convert_ensembl_to_hgnc(c("ENSG00000188984", NA, "ENSG00000115657")), c("AADACL3", NA, "ABCB6"), ignore_attr=TRUE)
   expect_equal(convert_ensembl_to_hgnc(c("ENSG00000188984", "", "ENSG00000115657")), c("AADACL3", NA, "ABCB6"), ignore_attr=TRUE)
+  expect_equal(convert_ensembl_to_hgnc(c("ENSG00000188984", "NOTAREALID", "ENSG00000115657")), c("AADACL3", NA, "ABCB6"), ignore_attr=TRUE)
+
+  #Duplicates
+  expect_equal(
+    object = convert_ensembl_to_hgnc(c("ENSG00000188984", "ENSG00000188984", "ENSG00000188984", "ENSG00000115657")),
+    expected = c("AADACL3", "AADACL3", "AADACL3", "ABCB6"),
+    ignore_attr=TRUE
+    )
+
+  #Duplicates reshuffled
+  expect_equal(
+    object = convert_ensembl_to_hgnc(c("ENSG00000188984", "ENSG00000188984", "ENSG00000115657", "ENSG00000188984")),
+    expected = c("AADACL3", "AADACL3", "ABCB6", "AADACL3"),
+    ignore_attr=TRUE
+  )
+
+  #Duplicates reshuffled w/ N, "", and incorrect IDS
+  expect_equal(
+    object = convert_ensembl_to_hgnc(c("ENSG00000188984", "ENSG00000188984",NA, "ENSG00000115657" )),
+    expected = c("AADACL3", "AADACL3", NA, "ABCB6"),
+    ignore_attr=TRUE
+  )
+
+  expect_equal(
+    object = convert_ensembl_to_hgnc(c("ENSG00000188984", "ENSG00000188984", "", "ENSG00000115657")),
+    expected = c("AADACL3", "AADACL3", NA, "ABCB6"),
+    ignore_attr=TRUE
+  )
+
+  expect_equal(
+    object = convert_ensembl_to_hgnc(c("ENSG00000188984", "ENSG00000188984",  "", "ENSG00000115657")),
+    expected = c("AADACL3", "AADACL3", NA, "ABCB6"),
+    ignore_attr=TRUE
+  )
+
+  expect_equal(
+    object = convert_ensembl_to_hgnc(c("ENSG00000188984", "ENSG00000188984",  "NOTAREALID", "ENSG00000115657")),
+    expected = c("AADACL3", "AADACL3", NA, "ABCB6"),
+    ignore_attr=TRUE
+  )
+
 
 
 })
