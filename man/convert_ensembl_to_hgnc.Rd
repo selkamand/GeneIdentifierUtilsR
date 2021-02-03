@@ -10,8 +10,8 @@ convert_ensembl_to_hgnc(ensembl_id)
 \item{ensembl_id}{ensembl id (character)}
 }
 \value{
-HGNC approved symbols (character vector). NA if can't find a match.
+HGNC approved symbols (character). NA if can't find a match.
 }
 \description{
-Vectorized version of convert_single_ensembl_to_hgnc
+Converts ensembl ids to HGNC approved symbol.
 }

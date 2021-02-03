@@ -15,3 +15,7 @@ ensembl id (string)
 \description{
 Maps HGNC gene symbols to ensembl_ids
 }
+\examples{
+hgnc_symbols = c("AATK", "RNU6-1046P", "SUR-5")
+convert_hgnc_to_ensembl()
+}

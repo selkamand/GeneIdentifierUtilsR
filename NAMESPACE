@@ -3,6 +3,6 @@
 export("%>%")
 export(convert_ensembl_to_hgnc)
 export(convert_hgnc_to_ensembl)
-export(convert_single_ensembl_to_hgnc)
 export(convert_single_hgnc_to_ensembl)
+import(data.table)
 importFrom(magrittr,"%>%")

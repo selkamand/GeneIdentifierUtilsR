@@ -23,4 +23,5 @@ Imports:
     EnsDb.Hsapiens.v86 (>= 2.99.0),
     dplyr (>= 1.0.2),
     purrr (>= 0.3.4),
-    tidyr (>= 1.1.2)
+    tidyr (>= 1.1.2),
+    data.table

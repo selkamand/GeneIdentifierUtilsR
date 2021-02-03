@@ -54,7 +54,7 @@ convert_single_hgnc_to_ensembl <- function(hgnc_symbol){
 #' @export
 #'
 #' @examples
-#' hgnc_symbols = c("AATK", ""RNU6-1046P", "SUR-5")
+#' hgnc_symbols = c("AATK", "RNU6-1046P", "SUR-5")
 #' convert_hgnc_to_ensembl()
 convert_hgnc_to_ensembl <- function(hgnc_symbols){
   hgnc_symbols = as.character(hgnc_symbols)
